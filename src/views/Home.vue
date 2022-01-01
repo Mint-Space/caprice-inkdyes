@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="right-container">
+    <div class="container">
       <div class="container-img">
         <div class="container-info">
           <div class="hello">HELLO!</div>
@@ -60,14 +60,14 @@ export default {
 .home {
   width: 100%;
   height: 100%;
-  .right-container {
+  .container {
     width: 100%;
     height: 100%;
     .container-img {
       width: 100%;
       height: 100%;
       background-position: center;
-      background-size: cover;
+      background-size:cover;
       background-repeat: no-repeat;
       background-image: url("../assets/sky.jpeg");
       display: flex;
@@ -75,7 +75,7 @@ export default {
       justify-content: center;
       align-items: center;
       .container-info {
-        width: 30%;
+        width: 50%;
         height: 40%;
         display: flex;
         flex-flow: column;

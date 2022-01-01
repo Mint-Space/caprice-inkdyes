@@ -34,7 +34,6 @@
           </div>
         </div>
       </section>
-
     </div>
   </div>
 </template>
@@ -61,52 +60,47 @@ export default {
           infoValue: "北京大学",
         },
         {
-          infoid: 5,
+          infoid: 4,
           infoName: "籍贯",
           infoValue: "中国北京",
         },
         {
-          infoid: 6,
+          infoid: 5,
           infoName: "英文名",
           infoValue: "LILI LIU",
+        },
+        {
+          infoid: 6,
+          infoName: "手机",
+          infoValue: "18555555555",
         },
         {
           infoid: 7,
-          infoName: "手机",
-          infoValue: "18555555555",
-        },
-        {
-          infoid: 8,
           infoName: "邮箱",
           infoValue: "lililiu@email.com",
         },
         {
-          infoid: 9,
+          infoid: 8,
           infoName: "现居城市",
           infoValue: "中国北京",
         },
         {
-          infoid: 10,
+          infoid: 9,
           infoName: "英文名",
           infoValue: "LILI LIU",
         },
         {
-          infoid: 11,
+          infoid: 10,
           infoName: "手机",
           infoValue: "18555555555",
         },
         {
-          infoid: 12,
+          infoid: 11,
           infoName: "邮箱",
           infoValue: "lililiu@email.com",
         },
         {
-          infoid: 13,
-          infoName: "现居城市",
-          infoValue: "中国北京",
-        },
-        {
-          infoid: 14,
+          infoid: 12,
           infoName: "现居城市",
           infoValue: "中国北京",
         },
@@ -117,40 +111,49 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.section-info{
+.section-info {
   width: 100%;
   height: 100%;
 }
-.about-title {
+.about-info-head {
   width: 100%;
-  height: 20%;
-  .head-desic {
-    position: relative;
+  height: 100%;
+  .about-title {
+    width: 100%;
+    height: 20vh;
+    box-sizing: content-box;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-    .head-desic-color {
-      width: 50px;
-      height: 2px;
-      background-color: #dba621;
-    }
-    .head-desic-title {
-      padding: 10px 20px;
+    .head-desic {
+      position: relative;
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      .head-desic-color {
+        width: 50px;
+        height: 2px;
+        background-color: #dba621;
+      }
+      .head-desic-title {
+        padding: 10px 20px;
+      }
     }
   }
 }
 
 .about-info-body {
   width: 100%;
-  height: 80%;
+  height: 80vh;
   .info-body-container {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
     .info-body-container-left {
       position: relative;
       width: 50%;
@@ -173,38 +176,35 @@ export default {
         z-index: -1;
       }
     }
-    // .info-body-container-left:after {
-    //   position: absolute;
-    //   content: "";
-    //   top: 10px;
-    //   left: 10px;
-    //   width: 50%;
-    //   height: 80%;
-    //   border: 5px solid #dba621;
-    // }
     .info-body-container-right {
       width: 50%;
-      height: 80%;
-      padding: 30px;
+      height: 100%;
+      padding: 30px 0px;
+      box-sizing: border-box;
       .info-list {
         display: flex;
         flex-flow: column;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
         flex-wrap: wrap;
-        height: 60vh;
+        height: 90%;
+        padding: 60px 0px;
+        box-sizing: border-box;
         .info-list-item {
           display: flex;
           flex-flow: row;
           justify-content: flex-start;
           align-items: center;
-          padding: 20px 50px;
+          padding: 20px 0px;
+          border-bottom: 1px #333 solid;
+          text-align: left;
+          width: 220px;
+          height: 30px;
           .info-list-item-key {
             text-align: left;
-            border-bottom: 1px #333 solid;
           }
           .info-list-item-value {
             text-align: left;
-            border-bottom: 1px #333 solid;
           }
         }
       }

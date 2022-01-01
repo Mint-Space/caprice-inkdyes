@@ -67,6 +67,7 @@ export default {
   align-items: center;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   .nav {
     display: flex;
     flex-flow: column;
@@ -99,6 +100,8 @@ export default {
   .right-container {
     width: 90%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 }
 * {
