@@ -35,8 +35,8 @@ export default {
         },
         {
           id: 3,
-          linkPath: "/samplereels",
-          linkName: "SampleReels",
+          linkPath: "/portfolio",
+          linkName: "Portfolio",
         },
         {
           id: 4,

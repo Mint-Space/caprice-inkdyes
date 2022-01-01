@@ -7,15 +7,15 @@
 <script>
 import Titles from "@/components/Title";
 export default {
-  name: "Contact",
+  name: "Portfolio",
   components: {
     Titles,
   },
   data() {
     return {
       titles: {
-        title: ["CONTACT", "ME"],
-        describe: "您可以随时联系我",
+        title: ["MY", "PROTFOLIO"],
+        describe: "我的往期作品展示",
       },
     };
   },
