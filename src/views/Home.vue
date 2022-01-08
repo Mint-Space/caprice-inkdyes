@@ -15,16 +15,16 @@
           </div>
           <div class="info-button">
             <div class="info-button-learn">了解更多</div>
-            <div
-              v-if="show"
-              ref="production"
-              @mouseover="mouseIn"
-              @mouseleave="mouseOut"
-              class="info-button-production"
-              transition="move"
-            >
-              作品集
-            </div>
+            <transition name="move">
+              <div
+                ref="production"
+                @mouseover="mouseIn"
+                @mouseleave="mouseOut"
+                class="info-button-production"
+              >
+                作品集
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -37,18 +37,17 @@ export default {
   name: "Home",
   components: {},
   data() {
-    return {
-      show: true,
-    };
+    return {};
   },
   methods: {
     mouseIn(e) {
       // this.show = !this.show;
       // this.$refs.production.className =
       //   "move-enter-active info-button-production:after";
-      console.log(e);
+      this.$refs.production.className = "info-button-production-move-in:after";
     },
     mouseOut(e) {
+      this.$refs.production.className = "info-button-production-move-out:after";
       // this.show = !this.show;
       // this.$refs.production.className =
       //   "move-leave-active info-button-production:after";
@@ -67,7 +66,7 @@ export default {
       width: 100%;
       height: 100%;
       background-position: center;
-      background-size:cover;
+      background-size: cover;
       background-repeat: no-repeat;
       background-image: url("../assets/sky.jpeg");
       display: flex;
@@ -119,31 +118,7 @@ export default {
             border: orange 2px solid;
             position: relative;
           }
-          .info-button-production:after {
-            background-color: orange;
-            width: 100px;
-            height: 50px;
-            border: orange 2px solid;
-            position: absolute;
-
-            content: "";
-            top: 0px;
-            left: 0px;
-          }
-          .move-enter {
-            animation: move-in 0.5s;
-          }
-          .move-leave {
-            animation: move-in 0.5s reverse;
-          }
-          .move-enter-active {
-            position: relative;
-            animation: move 0.5s;
-          }
-          .move-leave-active {
-            position: relative;
-            animation: move 0.5s reverse;
-          }
+          
           @keyframes move {
             0% {
               transform: translateX(0%);
