@@ -61,20 +61,16 @@ export default {
 
 <style lang="less" scoped>
 .horse-lamp {
-  background: #f0f0f0;
   box-shadow: 3px 3px 6px 3px rgba(126, 126, 126, 0.3);
-  
   overflow: hidden;
   .lamp-list {
     display: flex;
     flex-flow: row;
-    background-color: #f0f0f0;
     position: relative;
     .lamp-items {
       width: 700px;
       height: 400px;
       position: absolute;
-
       top: 0;
       .lamp-img {
         width: 100%;
@@ -107,6 +103,25 @@ export default {
           color: rgb(136, 136, 136);
         }
       }
+    }
+    .lamp-left {
+      position: absolute;
+      left: 0px;
+      margin-top: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(209, 45, 45);
+      transform: translateY("-50px");
+    }
+    .lamp-right {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      margin-top: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(119, 36, 36);
+      transform: translateY("-50px");
     }
   }
 }
