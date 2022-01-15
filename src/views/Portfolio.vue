@@ -1,15 +1,18 @@
 <template>
-  <div>
+  <div >
     <titles :titles="titles" />
+    <production />
   </div>
 </template>
 
 <script>
 import Titles from "@/components/Title";
+import Production from "@/components/Production";
 export default {
   name: "Portfolio",
   components: {
     Titles,
+    Production,
   },
   data() {
     return {

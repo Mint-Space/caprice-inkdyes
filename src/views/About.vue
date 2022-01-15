@@ -2,8 +2,17 @@
   <div class="container">
     <titles class="container-title" :titles="titles" />
     <div class="container-box">
-      <about-person-image />
-      <about-person-info class="container-info" :infoList="infoList" />
+      <div class="box-line">
+        <about-person-image />
+        <about-person-info class="container-info" :infoList="infoList" />
+      </div>
+      <box-line />
+    </div>
+    <div class="container-box">
+      <about-time />
+    </div>
+    <div class="container-box">
+      <about-skill/>
     </div>
   </div>
 </template>
@@ -12,12 +21,18 @@
 import Titles from "@/components/Title";
 import AboutPersonImage from "@/components/AboutPersonImage";
 import AboutPersonInfo from "@/components/AboutPersonInfo";
+import BoxLine from "@/components/BoxLine";
+import AboutTime from "@/components/AboutTime";
+import AboutSkill from "@/components/AboutSkill";
 export default {
   name: "About",
   components: {
     Titles,
     AboutPersonImage,
     AboutPersonInfo,
+    AboutTime,
+    AboutSkill,
+    BoxLine,
   },
   data() {
     return {
@@ -94,7 +109,6 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  height: 100vh;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -104,13 +118,21 @@ export default {
   }
   .container-box {
     display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
+    flex-flow: column;
     height: 75%;
-    width: 100%;
-    .container-info {
-      height: 80%;
+    width: 66%;
+    .box-line {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+      .container-info {
+        height: 70vh;
+        padding: 90px 0px;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+      }
     }
   }
 }

@@ -32,16 +32,14 @@ export default {
 
 <style lang="less" scoped>
 .box {
-  width: 100%;
-  height: 100%;
   .info-list {
     display: flex;
-    flex-flow: column;
-    justify-content: center;
+    flex-flow: row;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
+    height: 500px;
+    width: 550px;
     box-sizing: border-box;
     .info-list-item {
       display: flex;
