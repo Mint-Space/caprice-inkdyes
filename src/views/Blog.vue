@@ -1,16 +1,20 @@
 <template>
   <div class="container">
     <titles class="container-title" :titles="titles" />
+    <div>
+      <blog-lamp/>
+    </div>
   </div>
 </template>
 
 <script>
 import Titles from "@/components/Title";
-
+import BlogLamp from "@/components/BlogLamp";
 export default {
   name: "Blog",
   components: {
     Titles,
+    BlogLamp,
   },
   data() {
     return {

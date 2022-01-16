@@ -104,25 +104,6 @@ export default {
         }
       }
     }
-    .lamp-left {
-      position: absolute;
-      left: 0px;
-      margin-top: 50%;
-      width: 50px;
-      height: 50px;
-      background-color: rgb(209, 45, 45);
-      transform: translateY("-50px");
-    }
-    .lamp-right {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
-      margin-top: 50%;
-      width: 50px;
-      height: 50px;
-      background-color: rgb(119, 36, 36);
-      transform: translateY("-50px");
-    }
   }
 }
 
