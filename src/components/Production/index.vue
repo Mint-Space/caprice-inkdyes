@@ -37,9 +37,9 @@ export default {
     handleClick() {
       this.isShowCard = true;
     },
-    hiddenCard(){
-        this.isShowCard = false;
-    }
+    hiddenCard() {
+      this.isShowCard = false;
+    },
   },
   mounted() {},
   destroyed() {},
@@ -52,11 +52,11 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  margin: 80px 0px;
-//   position: relative;
+  padding: 40px 0px;
+  box-sizing: border-box;
   .box {
     width: 70%;
-    height: 600px;
+    height: 60%;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -77,7 +77,7 @@ export default {
     .horse-lamp {
       width: 700px;
       height: 400px;
-    //   filter: blur(2px);
+      //   filter: blur(2px);
     }
   }
 }

@@ -29,25 +29,33 @@ export default {
 <style lang="less" scoped>
 .card {
   position: relative;
+  width: 26%;
+  height: 15%;
+  margin: 10px;
+  box-sizing: border-box;
+
   img {
-    width: 360px;
-    height: 190px;
+    width: 100%;
+    height: auto;
     border-radius: 7px;
-    margin: 15px 0px;
+    background-size: cover;
+    background-position: center;
   }
 
   .design {
-    margin: 15px 0px;
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 360px;
-    height: 190px;
+    width: 100%;
+    height: 100%;
     border-radius: 7px;
     background-color: #dba621;
+    color: #fff;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
   }
   .move-enter-active {
     animation: move 1s ease;
