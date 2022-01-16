@@ -1,4 +1,4 @@
-# caprice-ink
+# 墨染随想
 
 ## Project setup
 ```

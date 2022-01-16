@@ -1,6 +1,8 @@
 <template>
   <div class="blog-lamp">
-    <div class="lamp-ctrl lamp-prev" @click="prev">&lt;</div>
+    <div class="lamp-ctrl lamp-prev" @click="prev">
+      <div class="arrows left-arrows"></div>
+    </div>
     <div class="blog-lamp-box">
       <div class="blog-lamp-list">
         <swiper ref="lamp" :options="swiperOptions">
@@ -14,20 +16,23 @@
               @mouseenter="moveIn"
               @mouseleave="moveOut"
             >
-              <img src="../../assets/sky.jpeg" alt="" srcset="" />
+              <blog-lamp-card />
+              <!-- <img src="../../assets/sky.jpeg" alt="" srcset="" /> -->
             </div>
           </swiper-slide>
           <!-- <div class="swiper-pagination" slot="pagination"></div> -->
         </swiper>
       </div>
     </div>
-    <div class="lamp-ctrl lamp-next" @click="next">&gt;</div>
+    <div class="lamp-ctrl lamp-next" @click="next">
+      <div class="arrows right-arrows"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
-
+import BlogLampCard from "@/components/BlogLampCard";
 // import style (>= Swiper 6.x)
 // import "swiper/swiper-bundle.css";
 
@@ -39,6 +44,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    BlogLampCard,
   },
   directives: {
     swiper: directive,
@@ -109,19 +115,36 @@ export default {
   margin-top: 150px;
   .lamp-prev {
     margin-right: 15px;
+    .left-arrows {
+      transform: rotate(135deg);
+      position: absolute;
+      left: 15px;
+    }
   }
   .lamp-next {
     margin-left: 15px;
+    .right-arrows {
+      transform: rotate(-45deg);
+      position: absolute;
+      right: 15px;
+    }
   }
   .lamp-ctrl {
     width: 40px;
     height: 40px;
-    background-color: #ccc;
+    background-color: #dba621;
     font-size: 25px;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    position: relative;
+    .arrows {
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      width: 15px;
+      height: 15px;
+    }
   }
   .lamp-ctrl:hover {
     width: 40px;
@@ -145,18 +168,19 @@ export default {
       flex-flow: row;
       position: relative;
       width: 1000px;
-      height: 350px;
-      border-radius: 15px;
+      height: 100%;
+      // border-radius: 15px;
       overflow: hidden;
       .swiper-slide {
         width: 50%; /*设为固定值*/
         .swiper-slide-zoomed {
           width: auto; /*根据内容调整宽度*/
+
           overflow: hidden;
-          img {
-            width: 100%;
-            border-radius: 15px;
-          }
+          // img {
+          //   width: 100%;
+
+          // }
         }
       }
     }
