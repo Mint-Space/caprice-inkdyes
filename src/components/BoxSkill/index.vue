@@ -1,16 +1,36 @@
 <template>
   <div class="progress">
     <div class="progress-box">
-      <div class="progress-title">吃饭</div>
-      <div class="progress-percent">60%</div>
+      <div class="progress-title">{{title}}</div>
+      <div class="progress-percent">{{progress}}</div>
     </div>
-    <div class="progress-bar"></div>
+    <div class="progress-bar" :style="cssVars"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: "BoxSkill",
+  props:{
+    progressObj:{
+      type: Object,
+      required: true
+    },
+    
+  },
+  data(){
+    return{
+      title:this.progressObj.progressTitle,
+      progress:this.progressObj.progressPercent,
+    }
+  },
+  computed:{
+    cssVars(){
+      return{
+        "--progress":this.progress
+      }
+    }
+  }
 };
 </script>
 
@@ -54,7 +74,7 @@ export default {
     left: 0px;
     content: "";
     height: 3px;
-    width: 20%;
+    width: var(--progress);
     margin: 10px 0px;
     background-color: #dba621;
   }
