@@ -1,27 +1,34 @@
 <template>
   <div class="progress">
     <div class="progress-box">
-      <div class="progress-title">吃饭</div>
-      <div class="progress-percent" ref="progress">{{skillPercentage}}</div>
+      <div class="progress-title">{{title}}</div>
+      <div class="progress-percent">{{progress}}</div>
     </div>
-    <div class="progress-bar"></div>
+    <div class="progress-bar" :style="cssVars"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: "BoxSkill",
+  props:{
+    progressObj:{
+      type: Object,
+      required: true
+    },
+    
+  },
   data(){
     return{
-      skillPercentage:"60%",
+      title:this.progressObj.progressTitle,
+      progress:this.progressObj.progressPercent,
     }
   },
-  mounted(){
-    this.changePercentage();
-  },
-  methods:{
-    changePercentage(){
-      this.$refs.progress.style.setProperty('--progress-percentage',this.skillPercentage);
+  computed:{
+    cssVars(){
+      return{
+        "--progress":this.progress
+      }
     }
   }
 };
@@ -68,7 +75,7 @@ export default {
     left: 0px;
     content: "";
     height: 3px;
-    width: var(--progress-percentage);
+    width: var(--progress);
     margin: 10px 0px;
     background-color: #dba621;
   }
