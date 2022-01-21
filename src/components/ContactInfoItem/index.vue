@@ -1,9 +1,9 @@
 <template>
   <div class="info-list">
-    <div class="info-title">电话</div>
+    <div class="info-title">{{infoTitle}}</div>
     <div class="info-item">
       <span class="info-icon"></span>
-      <div class="info-message">+86 13216285978</div>
+      <div class="info-message">{{infoMessage}}</div>
     </div>
   </div>
 </template>
@@ -11,6 +11,19 @@
 <script>
 export default {
   name: "ContactInfoItem",
+  props:{
+    contactInfo:{
+      type: Object,
+      required: true
+    }
+  },
+  data(){
+    return{
+      infoTitle:this.contactInfo.title,
+      infoIcon:this.contactInfo.icon,
+      infoMessage:this.contactInfo.message,
+    }
+  }
 };
 </script>
 

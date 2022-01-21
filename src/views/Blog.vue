@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <titles class="container-title" :titles="titles" />
-    <div>
-      <blog-lamp/>
+    <div class="container-body">
+      <blog-lamp />
     </div>
   </div>
 </template>
@@ -28,4 +28,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.container {
+  .container-title {
+    height: 30vh;
+  }
+  .container-body {
+    height: 60vh;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

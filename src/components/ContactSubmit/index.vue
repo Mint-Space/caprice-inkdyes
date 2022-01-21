@@ -46,7 +46,7 @@ export default {
     flex-flow: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 10px 0px;
+    padding-top: 20px;
     height: 100%;
     .submit-input {
       height: 50px;
@@ -57,6 +57,7 @@ export default {
       align-items: center;
       width: 100%;
       input {
+        width: 42%;
         border-radius: 25px;
         padding: 12px 15px;
         // width: 40%;

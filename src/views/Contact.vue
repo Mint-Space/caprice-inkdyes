@@ -38,10 +38,10 @@ export default {
   justify-content: center;
   align-items: center;
   .container-title {
-    height: 25vh;
+    height: 30vh;
   }
   .container-body {
-    height: 75vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     flex-flow: row;

@@ -112,7 +112,6 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
   .lamp-prev {
     margin-right: 15px;
     .left-arrows {

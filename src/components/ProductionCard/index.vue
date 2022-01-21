@@ -1,9 +1,11 @@
 <template>
   <div class="card" @mouseenter="moveIn" @mouseleave="moveOut">
-    <img src="../../assets/sky.jpeg" alt="" srcset="" />
-    <transition name="move">
-      <div v-show="isShow" class="design">设计作品</div>
-    </transition>
+    <div class="img">
+      <img src="../../assets/sky.jpeg" alt="" srcset="" align="middle"/>
+      <transition name="move">
+        <div v-show="isShow" class="design">设计作品</div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -29,34 +31,46 @@ export default {
 <style lang="less" scoped>
 .card {
   position: relative;
-  width: 26%;
-  height: 15%;
-  margin: 10px;
+  width: 30%;
+  height: 30%;
+  // margin: 10px;
   box-sizing: border-box;
-
-  img {
-    width: 100%;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img {
     border-radius: 7px;
-    background-size: cover;
+    width: 75%;
+    height: 75%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
     background-position: center;
+    background-size: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      object-fit: fill;
+      // border-radius: 7px;
+    }
+    .design {
+      position: absolute;
+      margin: auto;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      border-radius: 7px;
+      background-color: #dba621;
+      color: #fff;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  .design {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    border-radius: 7px;
-    background-color: #dba621;
-    color: #fff;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-  }
   .move-enter-active {
     animation: move 1s ease;
   }

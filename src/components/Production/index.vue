@@ -52,11 +52,11 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  padding: 40px 0px;
+  // padding: 40px 0px;
   box-sizing: border-box;
   .box {
     width: 70%;
-    height: 60%;
+    height: 50%;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
