@@ -2,7 +2,7 @@
   <div class="progress">
     <div class="progress-box">
       <div class="progress-title">吃饭</div>
-      <div class="progress-percent">60%</div>
+      <div class="progress-percent" ref="progress">{{skillPercentage}}</div>
     </div>
     <div class="progress-bar"></div>
   </div>
@@ -11,13 +11,27 @@
 <script>
 export default {
   name: "BoxSkill",
+  data(){
+    return{
+      skillPercentage:"60%",
+    }
+  },
+  mounted(){
+    this.changePercentage();
+  },
+  methods:{
+    changePercentage(){
+      this.$refs.progress.style.setProperty('--progress-percentage',this.skillPercentage);
+    }
+  }
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" scoped >
 .progress {
   padding: 25px 0px;
   width: 30%;
+  --progress-percentage: 20%;
   .progress-box {
     display: flex;
     flex-flow: row;
@@ -36,7 +50,7 @@ export default {
     width: 100%;
     position: relative;
     margin: 10px 0px;
-    padding: 5px 0px;
+    padding: 10px 0px;
   }
   .progress-bar:before {
     position: absolute;
@@ -54,7 +68,7 @@ export default {
     left: 0px;
     content: "";
     height: 3px;
-    width: 20%;
+    width: var(--progress-percentage);
     margin: 10px 0px;
     background-color: #dba621;
   }
