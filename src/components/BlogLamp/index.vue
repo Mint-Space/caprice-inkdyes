@@ -5,7 +5,7 @@
     </div>
     <div class="blog-lamp-box">
       <div class="blog-lamp-list">
-        <swiper ref="lamp" :options="overChange">
+        <swiper ref="lamp" :options="swiperOptions">
           <swiper-slide
             v-for="(o, i) in 4"
             :key="i"
@@ -74,11 +74,6 @@ export default {
     };
   },
   computed: {
-    overChange() {
-      this.$nextTick(() => {
-        return this.swiperOptions;
-      });
-    },
     swiper() {
       // return this.$nextTick(this.$refs.lamp.$swiper);
       // return this.$refs.lamp.$swiper;

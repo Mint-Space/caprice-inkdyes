@@ -5,7 +5,7 @@
     </transition>
     <div class="container-body">
       <transition name="lamp-into">
-        <blog-lamp v-show="isLamp" />
+        <blog-lamp v-if="isLamp" />
       </transition>
     </div>
   </div>
