@@ -12,16 +12,19 @@
       </div>
     </div>
     <div class="right-container">
-      <router-view />
+        <router-view/>
+        <!-- <router-view   class="animate__animated animate__fadeInRightBig"/> -->
     </div>
   </div>
 </template>
 
 <script>
+import 'animate.css'
 export default {
   name: "App",
   data() {
     return {
+    
       links: [
         {
           id: 1,
@@ -51,6 +54,7 @@ export default {
       ],
     };
   },
+  
 };
 </script>
 
@@ -102,6 +106,10 @@ export default {
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+      // 或者 width: 0;
+    }
   }
 }
 * {

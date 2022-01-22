@@ -1,8 +1,12 @@
 <template>
   <div class="container">
-    <titles class="container-title" :titles="titles" />
+    <transition name="title-into">
+      <titles class="container-title" v-show="isTitle" :titles="titles" />
+    </transition>
     <div class="container-body">
-      <production />
+      <transition name="produ-into">
+        <production v-show="isProdu" />
+      </transition>
     </div>
   </div>
 </template>
@@ -18,11 +22,24 @@ export default {
   },
   data() {
     return {
+      isTitle: false,
+      isProdu: false,
       titles: {
         title: ["MY", "PROTFOLIO"],
         describe: "我的往期作品展示",
       },
     };
+  },
+  methods: {
+    isShow() {
+      setTimeout(() => {
+        this.isProdu = true;
+      }, 150);
+      this.isTitle = true;
+    },
+  },
+  mounted() {
+    this.isShow();
   },
 };
 </script>
@@ -39,5 +56,9 @@ export default {
     justify-content: center;
     align-items: center;
   }
+}
+.title-into-enter-active,
+.produ-into-enter-active {
+  animation: fadeInRightBig 1s;
 }
 </style>

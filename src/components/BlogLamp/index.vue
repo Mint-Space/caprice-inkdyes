@@ -5,7 +5,7 @@
     </div>
     <div class="blog-lamp-box">
       <div class="blog-lamp-list">
-        <swiper ref="lamp" :options="swiperOptions">
+        <swiper ref="lamp" :options="overChange">
           <swiper-slide
             v-for="(o, i) in 4"
             :key="i"
@@ -74,12 +74,22 @@ export default {
     };
   },
   computed: {
+    overChange() {
+      this.$nextTick(() => {
+        return this.swiperOptions;
+      });
+    },
     swiper() {
+      // return this.$nextTick(this.$refs.lamp.$swiper);
+      // return this.$refs.lamp.$swiper;
       return this.$refs.lamp.$swiper;
     },
   },
   mounted() {
-    console.log("Current Swiper instance object", this.swiper);
+    // this.$nextTick(() => {
+    //   this.overChange;
+    // });
+    // console.log("Current Swiper instance object", this.swiper);
     // this.swiper.slideTo(3, 1000, false);
   },
 
@@ -88,11 +98,13 @@ export default {
       this.$refs.lamp.$swiper.autoplay.stop();
       // console.log(this);
       this.className = "zoom-in";
+
       // this.$refs.lamp.$swiper.zoom.in();
     },
     moveOut() {
       this.$refs.lamp.$swiper.autoplay.start();
       this.className = "zoom-out";
+
       // this.swiper.zoom.out();
       // this.$refs.lamp.$swiper.zoom.out();
     },
@@ -112,6 +124,8 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  // height: 100%;
+  // width: 100%;
   .lamp-prev {
     margin-right: 15px;
     .left-arrows {
@@ -174,7 +188,6 @@ export default {
         width: 50%; /*设为固定值*/
         .swiper-slide-zoomed {
           width: auto; /*根据内容调整宽度*/
-
           overflow: hidden;
           // img {
           //   width: 100%;

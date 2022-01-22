@@ -1,23 +1,32 @@
 <template>
   <div class="container">
-    <titles class="container-title" :titles="titles" />
+    <transition name="title-into">
+      <titles class="container-title" :titles="titles" v-show="isTitle" />
+    </transition>
     <div class="container-box">
-      <div class="box-line">
-        <about-person-image />
-        <about-person-info class="container-info" :infoList="infoList" />
-      </div>
-      <box-line />
+      <transition-group name="info-into">
+        <div class="box-line" key="1" v-show="isInfo">
+          <about-person-image />
+          <about-person-info class="container-info" :infoList="infoList" />
+        </div>
+        <box-line key="2" v-show="isInfo" />
+      </transition-group>
     </div>
     <div class="container-box">
-      <about-time />
+      <transition name="time-into">
+        <about-time v-show="isTime" />
+      </transition>
     </div>
     <div class="container-box">
-      <about-skill/>
+      <transition name="skill-into">
+        <about-skill v-show="isSkill" />
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+import "animate.css";
 import Titles from "@/components/Title";
 import AboutPersonImage from "@/components/AboutPersonImage";
 import AboutPersonInfo from "@/components/AboutPersonInfo";
@@ -36,6 +45,10 @@ export default {
   },
   data() {
     return {
+      isTitle: false,
+      isInfo: false,
+      isTime: false,
+      isSkill: false,
       titles: {
         title: ["ABOUT", "ME"],
         describe: "我的基本信息和一些自我介绍",
@@ -104,6 +117,19 @@ export default {
       ],
     };
   },
+  methods: {
+    isShow() {
+      this.isTitle = true;
+      setTimeout(() => {
+        this.isInfo = true;
+        this.isTime = true;
+        this.isSkill = true;
+      }, 150);
+    },
+  },
+  mounted() {
+    this.isShow();
+  },
 };
 </script>
 
@@ -133,5 +159,11 @@ export default {
       }
     }
   }
+}
+.title-into-enter-active,
+.info-into-enter-active,
+.time-into-enter-active,
+.skill-into-enter-active {
+  animation: fadeInRightBig 1s;
 }
 </style>
