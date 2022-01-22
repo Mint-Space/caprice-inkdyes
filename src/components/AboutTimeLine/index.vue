@@ -1,8 +1,6 @@
 <template>
     <div class="box">
-        <time-line/>
-        <time-line/>
-        <time-line/>
+        <time-line v-for="(timeLineObj,id) in timeLineList" :key="id" :timeLineObj="timeLineObj"/>
     </div>
 </template>
 
@@ -12,6 +10,12 @@ export default {
   name: "AboutTimeLine",
   components:{
       TimeLine
+  },
+  props:{
+      timeLineList:{
+          type:Array,
+          required:true
+      }
   }
 };
 </script>

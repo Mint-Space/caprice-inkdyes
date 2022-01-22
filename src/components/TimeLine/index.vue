@@ -5,10 +5,12 @@
       <div class="time-line-vertical-line"></div>
     </div>
     <div class="box-right">
-      <div class="date">2017-2019</div>
-      <div class="title">交互设计 - <span>华为</span></div>
+      <div class="date">{{ timeLineObj.startYear }}-{{ timeLineObj.endYear }}</div>
+      <div class="title">
+        {{ timeLineObj.postition }}&nbsp;-&nbsp;<span>{{ timeLineObj.company }}</span>
+      </div>
       <div class="describe">
-        您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素
+        {{ timeLineObj.detail }}
       </div>
     </div>
   </div>
@@ -17,6 +19,12 @@
 <script>
 export default {
   name: "TimeLine",
+  props: {
+    timeLineObj: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 

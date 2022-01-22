@@ -114,12 +114,11 @@ export default {
   justify-content: center;
   align-items: center;
   .container-title {
-    height: 25%;
+    height: 30vh;
   }
   .container-box {
     display: flex;
     flex-flow: column;
-    height: 75%;
     width: 66%;
     .box-line {
       display: flex;
@@ -128,7 +127,6 @@ export default {
       align-items: center;
       .container-info {
         height: 70vh;
-        padding: 90px 0px;
         display: flex;
         flex-flow: row;
         align-items: center;
