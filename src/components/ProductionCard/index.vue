@@ -1,9 +1,9 @@
 <template>
   <div class="card" @mouseenter="moveIn" @mouseleave="moveOut">
     <div class="img">
-      <img src="../../assets/sky.jpeg" alt="" srcset="" align="middle"/>
+      <img :src="poem.imgSrc" alt="" srcset="" align="middle" />
       <transition name="move">
-        <div v-show="isShow" class="design">设计作品</div>
+        <div v-show="isShow" class="design">{{ poem.title }}</div>
       </transition>
     </div>
   </div>
@@ -12,9 +12,16 @@
 <script>
 export default {
   name: "ProductionCard",
+  props: {
+    poemObj: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       isShow: false,
+      poem: this.poemObj,
     };
   },
   methods: {

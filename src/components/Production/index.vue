@@ -1,19 +1,17 @@
 <template>
   <div class="production">
     <div class="box">
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
-      <production-card class="items" @click.native="handleClick" />
+      <production-card
+        class="items"
+        @click.native="handleClick"
+        v-for="poem in poemList"
+        :key="poem.id"
+        :poemObj="poem"
+      />
     </div>
     <transition name="jump">
       <div v-show="isShowCard" class="hidden-card" @click.self="hiddenCard">
-        <horse-lamp class="horse-lamp" />
+        <horse-lamp class="horse-lamp" :poemListArr="poemList" />
       </div>
     </transition>
   </div>
@@ -31,6 +29,80 @@ export default {
   data() {
     return {
       isShowCard: false,
+      poemList: [
+        {
+          id: "0",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+        {
+          id: "1",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/image/20200411/20200411153721_42156.jpg",
+        },
+        {
+          id: "2",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+        {
+          id: "3",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+        {
+          id: "4",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/image/20200411/20200411153721_42156.jpg",
+        },
+        {
+          id: "5",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+        {
+          id: "6",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+        {
+          id: "7",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/image/20200411/20200411153721_42156.jpg",
+        },
+        {
+          id: "8",
+          title: "归年夜色",
+          body: "月色落圆花烟处。误入荷塘煤屑路。细语流年。惊觉烟火绽燃天渡。半生余途。",
+          author: "墨染",
+          imgSrc:
+            "https://www.toopic.cn/public/uploads/small/16388607525163886075231.jpg",
+        },
+      ],
     };
   },
   methods: {

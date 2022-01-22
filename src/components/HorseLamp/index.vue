@@ -4,22 +4,22 @@
       <transition-group tag="div" name="banner">
         <div
           class="lamp-items"
-          v-for="(item, index) in 3"
-          v-show="num == index"
-          :key="index"
+          v-for="poem in poemList"
+          v-show="num == poem.id"
+          :key="poem.id"
         >
-          <img class="lamp-img" src="../../assets/sky.jpeg" alt="" />
+          <img class="lamp-img" :src="poem.imgSrc" alt="" />
           <div class="poem">
-            <div class="poem-title">归年夜色</div>
+            <div class="poem-title">{{ poem.title }}</div>
             <div class="poem-bady">
-              <p>月色落圆花烟处</p>
-              <p>误入荷塘煤屑路</p>
-              <p>细语流年</p>
-              <p>细语流年</p>
-              <p>惊觉烟火绽燃天渡</p>
-              <p>半生余途</p>
+              <p
+                v-for="(poemSentence, index) in poemSentenceList(poem.id)"
+                :key="index"
+              >
+                {{ poemSentence }}
+              </p>
             </div>
-            <div class="poem-author">墨染</div>
+            <div class="poem-author">{{ poem.author }}</div>
           </div>
         </div>
       </transition-group>
@@ -30,15 +30,29 @@
 <script>
 export default {
   name: "HorseLamp",
+  props: {
+    poemListArr: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       num: 0, // 默认显示第几个
       animateTime: 5000, // 要和 css 的过渡一致
       self,
+      poemList: this.poemListArr,
     };
   },
   mounted() {
     this.play(); // 初始的时候加载
+  },
+  computed: {
+    poemSentenceList() {
+      return function (index) {
+        return this.poemList[index].body.split("。");
+      };
+    },
   },
   methods: {
     autoPlay() {
