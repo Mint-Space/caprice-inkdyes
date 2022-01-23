@@ -45,7 +45,7 @@ export default {
           id: 3,
           linkPath: "/portfolio",
           linkName: "Portfolio",
-          icon: "icon-group-folders",
+          icon: "icon-carrot",
         },
         {
           id: 4,
