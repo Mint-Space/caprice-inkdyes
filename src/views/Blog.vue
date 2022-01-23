@@ -24,6 +24,7 @@ export default {
     return {
       isTitle: false,
       isLamp: false,
+      timer: 0,
       titles: {
         title: ["BL", "OG"],
         describe: "有关网页设计和开发的技巧",
@@ -77,13 +78,18 @@ export default {
   methods: {
     isShow() {
       this.isTitle = true;
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.isLamp = true;
       }, 150);
     },
   },
   mounted() {
     this.isShow();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer);
+    this.isTitle = false;
+    this.isLamp = false;
   },
 };
 </script>

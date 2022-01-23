@@ -49,6 +49,7 @@ export default {
       isInfo: false,
       isTime: false,
       isSkill: false,
+      timer: 0,
       titles: {
         title: ["ABOUT", "ME"],
         describe: "我的基本信息和一些自我介绍",
@@ -212,7 +213,7 @@ export default {
   methods: {
     isShow() {
       this.isTitle = true;
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.isInfo = true;
         this.isTime = true;
         this.isSkill = true;
@@ -221,6 +222,13 @@ export default {
   },
   mounted() {
     this.isShow();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer);
+    this.isTitle = false;
+    this.isInfo = false;
+    this.isTime = false;
+    this.isSkill = false;
   },
 };
 </script>

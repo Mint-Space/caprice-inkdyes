@@ -24,6 +24,7 @@ export default {
     return {
       isTitle: false,
       isProdu: false,
+      timer: 0,
       titles: {
         title: ["MY", "PROTFOLIO"],
         describe: "我的往期作品展示",
@@ -106,14 +107,19 @@ export default {
   },
   methods: {
     isShow() {
-      setTimeout(() => {
+      this.isTitle = true;
+      this.timer = setTimeout(() => {
         this.isProdu = true;
       }, 150);
-      this.isTitle = true;
     },
   },
   mounted() {
     this.isShow();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer);
+    this.isTitle = false;
+    this.isProdu = false;
   },
 };
 </script>

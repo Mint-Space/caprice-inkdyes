@@ -24,18 +24,24 @@ export default {
     return {
       isImg: false,
       isHome: false,
+      timer: 0,
     };
   },
   methods: {
     isShow() {
       this.isImg = true;
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.isHome = true;
       }, 150);
     },
   },
   mounted() {
     this.isShow();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer);
+    this.isHome = false;
+    this.isImg = false;
   },
 };
 </script>

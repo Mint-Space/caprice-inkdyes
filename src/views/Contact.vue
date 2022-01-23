@@ -33,6 +33,7 @@ export default {
     return {
       isTitle: false,
       isContact: false,
+      timer: 0,
       titles: {
         title: ["CONTACT", "ME"],
         describe: "您可以随时联系我",
@@ -103,14 +104,19 @@ export default {
   },
   methods: {
     isShow() {
-      setTimeout(() => {
+      this.isTitle = true;
+      this.timer = setTimeout(() => {
         this.isContact = true;
       }, 150);
-      this.isTitle = true;
     },
   },
   mounted() {
     this.isShow();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer);
+    this.isTitle = false;
+    this.isContact = false;
   },
 };
 </script>
