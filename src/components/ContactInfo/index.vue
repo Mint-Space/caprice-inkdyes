@@ -26,68 +26,16 @@ export default {
   components: {
     ContactInfoItem,
   },
+  props: {
+    contactInfoObj: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      contactInfoList: [
-        {
-          id: 1,
-          title: "电话",
-          icon: "icon",
-          message: "+86 132 1628 5978",
-        },
-        {
-          id: 2,
-          title: "邮箱",
-          icon: "icon",
-          message: "qifeiye@admin.com",
-        },
-        {
-          id: 3,
-          title: "传真",
-          icon: "icon",
-          message: "+0086 5566 6857",
-        },
-        {
-          id: 4,
-          title: "地址",
-          icon: "icon",
-          message: "苏州市中新大道加成大厦",
-        },
-      ],
-      contactImgList: [
-        {
-          id: 1,
-          imgSrc:
-            "https://f.goodq.top/FeiEditor/images/icon/social_icon_32x32.png",
-          icon: "corner qfy-icon qfy-icon_32x32 weibo-icon_32x32",
-          title: "按时发大水",
-          link: "",
-        },
-        {
-          id: 2,
-          imgSrc:
-            "https://f.goodq.top/FeiEditor/images/icon/social_icon_32x32.png",
-          icon: "corner qfy-icon qfy-icon_32x32 weixin-icon_32x32",
-          title: "是否",
-          link: "",
-        },
-        {
-          id: 3,
-          imgSrc:
-            "https://f.goodq.top/FeiEditor/images/icon/social_icon_32x32.png",
-          icon: "corner qfy-icon qfy-icon_32x32 qq-icon_32x32",
-          title: "半个坏习惯",
-          link: "",
-        },
-        {
-          id: 4,
-          imgSrc:
-            "https://f.goodq.top/FeiEditor/images/icon/social_icon_32x32.png",
-          icon: "corner qfy-icon qfy-icon_32x32 video-icon_32x32",
-          title: "水电费",
-          link: "",
-        },
-      ],
+      contactInfoList: this.contactInfoObj.contactInfoList,
+      contactImgList: this.contactInfoObj.contactImgList,
     };
   },
   computed: {

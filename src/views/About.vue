@@ -14,12 +14,12 @@
     </div>
     <div class="container-box">
       <transition name="time-into">
-        <about-time v-show="isTime" />
+        <about-time v-show="isTime" :timeLineList="timeLineList" />
       </transition>
     </div>
     <div class="container-box">
       <transition name="skill-into">
-        <about-skill v-show="isSkill" />
+        <about-skill v-show="isSkill" :skillList="skillList" />
       </transition>
     </div>
   </div>
@@ -113,6 +113,98 @@ export default {
           infoid: 12,
           infoName: "现居城市",
           infoValue: "中国北京",
+        },
+      ],
+      timeLineList: {
+        workList: [
+          {
+            id: 1,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+          {
+            id: 2,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+          {
+            id: 3,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+        ],
+        eduList: [
+          {
+            id: 1,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+          {
+            id: 2,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+          {
+            id: 3,
+            startYear: "2017",
+            endYear: "2020",
+            postition: "交互设计",
+            company: "加吧",
+            detail:
+              "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素",
+          },
+        ],
+      },
+      skillList: [
+        {
+          id: 1,
+          progressTitle: "吃饭",
+          progressPercent: "50%",
+        },
+        {
+          id: 2,
+          progressTitle: "树胶",
+          progressPercent: "70%",
+        },
+        {
+          id: 3,
+          progressTitle: "年后",
+          progressPercent: "60%",
+        },
+        {
+          id: 4,
+          progressTitle: "发放",
+          progressPercent: "80%",
+        },
+        {
+          id: 5,
+          progressTitle: "沙发落后发",
+          progressPercent: "20%",
+        },
+        {
+          id: 6,
+          progressTitle: "沙后发",
+          progressPercent: "20%",
         },
       ],
     };

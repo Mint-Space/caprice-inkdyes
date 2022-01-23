@@ -1,14 +1,13 @@
 <template>
   <div class="card-box" @mouseenter="moveIn" @mouseleave="moveOut">
     <div class="card-img" ref="cardImg">
-      {{i}}
-      <img src="../../assets/sky.jpeg" alt="" />
+      <img :src="blogCard.imgSrc" alt="" />
     </div>
     <transition name="card">
       <div class="card-font" ref="cardFont" v-show="isCard">
         <div class="card-font-box">
-          <div class="card-title">松发顺丰是的发送到</div>
-          <div class="card-date">2022 1-15</div>
+          <div class="card-title">{{blogCard.title}}</div>
+          <div class="card-date">{{blogCard.date}}</div>
         </div>
       </div>
     </transition>
@@ -20,13 +19,15 @@ import "animate.css";
 export default {
   name: "BlogLampCard",
   props:{
-    i:{
-      type:Number
+    blogCardObj:{
+      type:Object,
+      required:true
     }
   },
   data() {
     return {
       isCard: false,
+      blogCard:this.blogCardObj
     };
   },
   methods: {

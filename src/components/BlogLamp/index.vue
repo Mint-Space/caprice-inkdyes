@@ -7,14 +7,14 @@
       <div class="blog-lamp-list">
         <swiper ref="lamp" :options="swiperOptions">
           <swiper-slide
-            v-for="(o, i) in 4"
-            :key="i"
+            v-for="blogCard in blogCardList"
+            :key="blogCard.id"
             class="swiper-slide swiper-zoom-container"
           >
             <div @mouseenter="moveIn" @mouseleave="moveOut">
               <blog-lamp-card
                 class="swiper-slide-zoomed swiper-zoom-target"
-                :i="o"
+                :blogCardObj="blogCard"
               />
             </div>
             <!-- <img src="../../assets/sky.jpeg" alt="" srcset="" /> -->
@@ -44,6 +44,12 @@ export default {
     Swiper,
     SwiperSlide,
     BlogLampCard,
+  },
+  props: {
+    blogCardList: {
+      type: Array,
+      required: true,
+    },
   },
   // directives: {
   //   swiper: directive,
