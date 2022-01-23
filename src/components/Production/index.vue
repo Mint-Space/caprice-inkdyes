@@ -78,6 +78,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     .horse-lamp {
       width: 700px;
       height: 400px;
@@ -87,17 +88,9 @@ export default {
 }
 
 .jump-enter-active {
-  animation: jump 1s ease;
+  animation: fadeInDownBig 1s ease;
 }
 .jump-leave-active {
-  animation: jump 1s ease reverse;
-}
-@keyframes jump {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation: fadeInDownBig 1s ease reverse;
 }
 </style>

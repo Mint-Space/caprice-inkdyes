@@ -67,8 +67,8 @@ export default {
       var animation = this.$refs.me.animate(
         [
           {
-            opacity: "0",
-            transform: "scale3d(0.3, 0.3, 0.3)",
+            opacity: "1",
+            transform: "scale3d(0.6, 0.6, 0.6)",
           },
 
           {
