@@ -1,30 +1,31 @@
 <template>
   <div id="app">
     <div class="nav">
-      <div>
-        <img alt="Vue logo" src="./assets/logo.png" />
+      <div class="me">
+        <transition name="me-into">
+          <img alt="Vue logo" ref="me" src="./assets/logo.png" v-show="isMe" />
+        </transition>
       </div>
       <div class="nav-list">
-        <div class="link" v-for="link in links" :key="link.id">
+        <div class="link" v-for="link in links" :key="link.id" @click="showMe">
           <span></span>
           <router-link :to="link.linkPath">{{ link.linkName }}</router-link>
         </div>
       </div>
     </div>
     <div class="right-container">
-        <router-view/>
-        <!-- <router-view   class="animate__animated animate__fadeInRightBig"/> -->
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import 'animate.css'
+import "animate.css";
 export default {
   name: "App",
   data() {
     return {
-    
+      isMe: false,
       links: [
         {
           id: 1,
@@ -54,7 +55,43 @@ export default {
       ],
     };
   },
-  
+  methods: {
+    showMe() {
+      var animation = this.$refs.me.animate(
+        [
+          {
+            opacity: "0",
+            transform: "scale3d(0.3, 0.3, 0.3)",
+          },
+
+          {
+            transform: "scale3d(1.1, 1.1, 1.1)",
+          },
+          {
+            transform: "scale3d(0.9, 0.9, 0.9)",
+          },
+          {
+            opacity: "1",
+            transform: "scale3d(1.03, 1.03, 1.03)",
+          },
+          {
+            transform: "scale3d(0.97, 0.97, 0.97)",
+          },
+          {
+            opacity: "1",
+            transform: "scale3d(1, 1, 1)",
+          },
+        ],
+        {
+          duration: 1000,
+        }
+      );
+      animation.play();
+    },
+  },
+  mounted() {
+    this.isMe = true;
+  },
 };
 </script>
 
@@ -82,6 +119,15 @@ export default {
     background-color: #333;
     padding: 30px;
     box-sizing: border-box;
+    .me {
+      width: 90px;
+      height: 90px;
+      overflow: hidden;
+      margin-bottom: 35px;
+      img {
+        width: 100%;
+      }
+    }
     .nav-list {
       display: flex;
       flex-flow: column;
@@ -108,9 +154,13 @@ export default {
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none; /* Chrome Safari */
+      width: 0;
       // 或者 width: 0;
     }
   }
+}
+.me-into-enter-active {
+  animation: bounceIn 1s;
 }
 * {
   margin: 0px;
