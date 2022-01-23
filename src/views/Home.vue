@@ -1,11 +1,13 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="container-img">
-        <transition name="home-into">
-          <home-info v-show="isHome" />
-        </transition>
-      </div>
+      <transition name="img-into">
+        <div class="container-img" v-show="isImg">
+          <transition name="home-into">
+            <home-info v-show="isHome" />
+          </transition>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -20,12 +22,16 @@ export default {
   },
   data() {
     return {
+      isImg: false,
       isHome: false,
     };
   },
   methods: {
     isShow() {
-      this.isHome = true;
+      this.isImg = true;
+      setTimeout(() => {
+        this.isHome = true;
+      }, 150);
     },
   },
   mounted() {
@@ -56,5 +62,8 @@ export default {
 }
 .home-into-enter-active {
   animation: fadeInRightBig 1s;
+}
+.img-into-enter-active {
+  animation: fadeIn 1s;
 }
 </style>

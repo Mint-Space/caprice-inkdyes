@@ -1,6 +1,7 @@
 <template>
   <div class="card-box" @mouseenter="moveIn" @mouseleave="moveOut">
     <div class="card-img" ref="cardImg">
+      {{i}}
       <img src="../../assets/sky.jpeg" alt="" />
     </div>
     <transition name="card">
@@ -18,6 +19,11 @@
 import "animate.css";
 export default {
   name: "BlogLampCard",
+  props:{
+    i:{
+      type:Number
+    }
+  },
   data() {
     return {
       isCard: false,
@@ -37,8 +43,8 @@ export default {
 <style lang="less" scoped>
 .card-box {
   position: relative;
-  width: 100%;
-  height: 100%;
+  // width: 450px;
+  // height: 250px;
 
   .card-img {
     width: 100%;

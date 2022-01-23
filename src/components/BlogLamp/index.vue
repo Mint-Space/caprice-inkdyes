@@ -11,14 +11,13 @@
             :key="i"
             class="swiper-slide swiper-zoom-container"
           >
-            <div
-              class="swiper-slide-zoomed swiper-zoom-target"
-              @mouseenter="moveIn"
-              @mouseleave="moveOut"
-            >
-              <blog-lamp-card />
-              <!-- <img src="../../assets/sky.jpeg" alt="" srcset="" /> -->
+            <div @mouseenter="moveIn" @mouseleave="moveOut">
+              <blog-lamp-card
+                class="swiper-slide-zoomed swiper-zoom-target"
+                :i="o"
+              />
             </div>
+            <!-- <img src="../../assets/sky.jpeg" alt="" srcset="" /> -->
           </swiper-slide>
           <!-- <div class="swiper-pagination" slot="pagination"></div> -->
         </swiper>
@@ -46,9 +45,9 @@ export default {
     SwiperSlide,
     BlogLampCard,
   },
-  directives: {
-    swiper: directive,
-  },
+  // directives: {
+  //   swiper: directive,
+  // },
   data() {
     return {
       swiperOptions: {
@@ -57,7 +56,7 @@ export default {
         },
         slidesPerView: 2,
         parallax: true,
-        loop: true,
+
         speed: 1500,
         autoplay: {
           delay: 3000,
@@ -74,15 +73,22 @@ export default {
     };
   },
   computed: {
+    overChange() {
+      this.$nextTick(() => {
+        return this.swiperOptions;
+      });
+    },
     swiper() {
       // return this.$nextTick(this.$refs.lamp.$swiper);
       // return this.$refs.lamp.$swiper;
       return this.$refs.lamp.$swiper;
     },
   },
+  methods: {},
   mounted() {
+    // this.swiper.autoplay.start();
     // this.$nextTick(() => {
-    //   this.overChange;
+    // this.overChange;
     // });
     // console.log("Current Swiper instance object", this.swiper);
     // this.swiper.slideTo(3, 1000, false);
@@ -90,15 +96,15 @@ export default {
 
   methods: {
     moveIn() {
-      this.$refs.lamp.$swiper.autoplay.stop();
+      this.swiper.autoplay.stop();
       // console.log(this);
-      this.className = "zoom-in";
+      // this.className = "zoom-in";
 
       // this.$refs.lamp.$swiper.zoom.in();
     },
     moveOut() {
-      this.$refs.lamp.$swiper.autoplay.start();
-      this.className = "zoom-out";
+      this.swiper.autoplay.start();
+      // this.className = "zoom-out";
 
       // this.swiper.zoom.out();
       // this.$refs.lamp.$swiper.zoom.out();
@@ -119,8 +125,8 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  // height: 100%;
-  // width: 100%;
+  height: 100%;
+  width: 100%;
   .lamp-prev {
     margin-right: 15px;
     .left-arrows {
@@ -171,18 +177,20 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width: 60%;
+    height: 65%;
     .blog-lamp-list {
       display: flex;
       flex-flow: row;
       position: relative;
-      width: 1000px;
+      width: 100%;
       height: 100%;
       // border-radius: 15px;
       overflow: hidden;
       .swiper-slide {
-        width: 50%; /*设为固定值*/
+        width: 450px; /*设为固定值*/
         .swiper-slide-zoomed {
-          width: auto; /*根据内容调整宽度*/
+          width: 100%; /*根据内容调整宽度*/
           overflow: hidden;
           // img {
           //   width: 100%;
