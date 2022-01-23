@@ -8,8 +8,10 @@
       </div>
       <div class="nav-list">
         <div class="link" v-for="link in links" :key="link.id" @click="showMe">
-          <span></span>
-          <router-link :to="link.linkPath">{{ link.linkName }}</router-link>
+          <i :class="`link-icon iconfont ${link.icon}`"></i>
+          <router-link class="link-to" :to="link.linkPath">{{
+            link.linkName
+          }}</router-link>
         </div>
       </div>
     </div>
@@ -31,26 +33,31 @@ export default {
           id: 1,
           linkPath: "/",
           linkName: "Home",
+          icon: "icon-home",
         },
         {
           id: 2,
           linkPath: "/about",
           linkName: "About",
+          icon: "icon-group",
         },
         {
           id: 3,
           linkPath: "/portfolio",
           linkName: "Portfolio",
+          icon: "icon-group-folders",
         },
         {
           id: 4,
           linkPath: "/blog",
           linkName: "Blog",
+          icon: "icon-coffee2",
         },
         {
           id: 5,
           linkPath: "/contact",
           linkName: "Contact",
+          icon: "icon-adress-book2",
         },
       ],
     };
@@ -136,6 +143,17 @@ export default {
       height: 60%;
       .link {
         margin: 20px 0px;
+        .link-icon {
+          font-size: 20px;
+          color: #fff;
+          margin-right: 10px;
+        }
+        .link-icon:hover {
+          color: #dba621;
+        }
+        .link-to:hover {
+          color: #dba621;
+        }
       }
     }
     a {

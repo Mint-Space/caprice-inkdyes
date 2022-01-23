@@ -34,7 +34,8 @@ export default {
   height: 80%;
   width: 55%;
   .submit-info {
-    padding: 45px 0px;
+    padding-top: 30px;
+    padding-bottom: 60px;
     text-align: left;
     p {
       color: #555;
@@ -64,6 +65,9 @@ export default {
         height: 80%;
         border: 1px solid #ccc;
         outline: none;
+        &:focus{
+          border: 1px solid #dba621;
+        }
       }
     }
     .submit-textarea {
@@ -77,17 +81,27 @@ export default {
         border: 1px solid #ccc;
         outline: none;
         box-sizing: border-box;
+        &:focus{
+          border: 1px solid #dba621;
+        }
       }
     }
     .submit-btn {
       height: 50px;
       border-radius: 25px;
       input {
+        background-color: #dba621;
+        color: #fff;
         border-radius: 25px;
         padding: 12px 0px;
         width: 150px;
-        border: 1px solid #ccc;
+        border: 1px solid #dba621;
         outline: none;
+        &:hover {
+          background-color: #8d9095;
+          border: 1px solid #8d9095;
+          color: #fff;
+        }
       }
     }
   }

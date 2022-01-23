@@ -1,9 +1,9 @@
 <template>
   <div class="info-list">
-    <div class="info-title">{{infoTitle}}</div>
+    <div class="info-title">{{ infoTitle }}</div>
     <div class="info-item">
-      <span class="info-icon"></span>
-      <div class="info-message">{{infoMessage}}</div>
+      <i :class="`info-icon iconfont ${infoIcon}`"></i>
+      <div class="info-message">{{ infoMessage }}</div>
     </div>
   </div>
 </template>
@@ -11,19 +11,19 @@
 <script>
 export default {
   name: "ContactInfoItem",
-  props:{
-    contactInfo:{
+  props: {
+    contactInfo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-  data(){
-    return{
-      infoTitle:this.contactInfo.title,
-      infoIcon:this.contactInfo.icon,
-      infoMessage:this.contactInfo.message,
-    }
-  }
+  data() {
+    return {
+      infoTitle: this.contactInfo.title,
+      infoIcon: this.contactInfo.icon,
+      infoMessage: this.contactInfo.message,
+    };
+  },
 };
 </script>
 
@@ -44,8 +44,10 @@ export default {
     flex-flow: row;
     justify-content: space-around;
     align-items: center;
-    
+
     .info-icon {
+      margin-right: 20px;
+      font-size: 30px;
     }
     .info-message {
     }
