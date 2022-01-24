@@ -47,7 +47,7 @@ export default {
 
     .info-icon {
       margin-right: 20px;
-      font-size: 30px;
+      font-size: 24px;
     }
     .info-message {
     }
