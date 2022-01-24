@@ -7462,6 +7462,15 @@ type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+typed.js@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.nlark.com/typed.js/download/typed.js-2.0.12.tgz#246aff074c8e18d32ec27acb7be15094ac0bc0e1"
+  integrity sha1-JGr/B0yOGNMuwnrLe+FQlKwLwOE=
+
+"typed.js@git+https://github.com/mattboldt/typed.js.git":
+  version "2.0.12"
+  resolved "git+https://github.com/mattboldt/typed.js.git#37873a11ffadc43af412b67eea332d2a531dad15"
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.nlark.com/typedarray/download/typedarray-0.0.6.tgz"
@@ -7761,6 +7770,13 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
+
+vue-typed-js@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.nlark.com/vue-typed-js/download/vue-typed-js-0.1.2.tgz#afc38972675314c37df6de91daf870f6860024ca"
+  integrity sha1-r8OJcmdTFMN99t6R2vhw9oYAJMo=
+  dependencies:
+    typed.js "git+https://github.com/mattboldt/typed.js.git"
 
 vue@^2.6.11:
   version "2.6.14"

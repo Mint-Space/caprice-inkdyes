@@ -2,9 +2,15 @@
   <div class="container-info">
     <div class="hello">HELLO!</div>
     <div class="info-iam">
-      <h2 class="info-iam-is">我是</h2>
-      <!-- <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
-      <h2 class="load-text">{{ loadText }}</h2>
+      <div class="info-iam-is">我是</div>
+      <div class="load-text">
+        <vue-typed-js
+          :strings="['一名设计师', '您身边的交互设计师']"
+          :loop="true"
+        >
+          <span class="typing"></span>
+        </vue-typed-js>
+      </div>
     </div>
     <div class="info-desic">
       这里是文字区块，您可以点击文字上的编辑按钮更改这里的文字。广告集,搜集全球经典广告,有创意、爱公益、会搞笑,一个视频,几张图片,展现每一个精彩瞬
@@ -12,88 +18,42 @@
     </div>
     <div class="info-button">
       <div class="info-button-learn">了解更多</div>
-      <transition name="move">
-        <div
-          ref="production"
-          @mouseover="mouseIn"
-          @mouseleave="mouseOut"
-          class="info-button-production"
-        >
-          作品集
-        </div>
-      </transition>
+      <div
+        @mouseover="mouseIn"
+        @mouseleave="mouseOut"
+        class="info-button-production"
+      >
+        作品集
+        <transition name="move-into">
+          <span class="info-button-production-span" v-show="isShowSpan"></span>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { VueTypedJs } from "vue-typed-js";
 export default {
   name: "HomeInfo",
+  components: {
+    VueTypedJs,
+  },
   data() {
     return {
-      textOne: "一名设计师",
-      textTwo: "您身边的交互设计师",
-      loadText: "",
-      str: "",
-      i: 0,
-      timerOne: 0,
-      timerTwo: 0,
+      isShowSpan: false,
     };
   },
   methods: {
-    mouseIn(e) {
-      // this.show = !this.show;
-      // this.$refs.production.className =
-      //   "move-enter-active info-button-production:after";
-      this.$refs.production.className = "info-button-production-move-in:after";
+    mouseIn() {
+      this.isShowSpan = true;
     },
-    mouseOut(e) {
-      this.$refs.production.className = "info-button-production-move-out:after";
-      // this.show = !this.show;
-      // this.$refs.production.className =
-      //   "move-leave-active info-button-production:after";
-    },
-    createText(text) {
-      let textOneLen = this.textOne.length;
-      let textTwoLen = this.textTwo.length;
-      if ((this.i <= textOneLen) | (this.i <= textTwoLen)) {
-        this.str = text;
-        this.loadText = this.str.slice(0, this.i++) + " | ";
-        this.timerOne = setTimeout(() => {
-          this.createText(text);
-        }, 300);
-      }
-    },
-    clearText(text) {
-      console.log(text);
-      let len = text.length;
-      if (text.length > 0) {
-        this.loadText = text.slice(0, len--) + "_";
-        console.log(text);
-        this.timerTwo = setTimeout(() => {
-          this.clearText(text);
-        }, 300);
-      }
-    },
-    changeText() {
-      let textOneLen = this.textOne.length;
-      let textTwoLen = this.textTwo.length;
-      if (this.i <= this.loadText.length) {
-        this.createText(this.textOne);
-      } else {
-      }
-      if (this.loadText.length == textOneLen) {
-        this.clearText(this.loadText);
-      }
+    mouseOut() {
+      this.isShowSpan = false;
     },
   },
-  mounted() {
-    this.$nextTick(this.changeText);
-  },
-  destroyed() {
-    clearTimeout(this.timerOne);
-    clearTimeout(this.timerTwo);
-  },
+  mounted() {},
+  destroyed() {},
 };
 </script>
 <style lang="less" scoped>
@@ -108,30 +68,40 @@ export default {
   .hello {
     font-size: 24px;
     color: #fff;
-  }
-  div {
-    padding: 8px;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
   }
   .info-iam {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-size: 36px;
+    font-size: 40px;
     color: #fff;
-    box-sizing: border-box;
     .info-iam-is {
-      width: 20%;
-      box-sizing: border-box;
+      width: 25%;
+      display: flex;
+      justify-content: flex-start;
     }
     .load-text {
-      box-sizing: border-box;
-      width: 80%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 75%;
       color: #dba621;
+      .typing {
+        font-size: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
     }
   }
   .info-desic {
     color: #fff;
     text-align: left;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .info-button {
@@ -141,7 +111,8 @@ export default {
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    div {
+    padding: 0px;
+    .info-button-learn {
       border-radius: 35px;
       padding: 20px 90px;
       background-color: #dba621;
@@ -149,17 +120,47 @@ export default {
       border: #dba621 2px solid;
     }
     .info-button-production {
-      background-color: rgba(255, 166, 0, 0);
+      background-color: #dba62100;
+      color: #fff;
+      border-radius: 35px;
+      padding: 20px 90px;
       border: #dba621 2px solid;
       position: relative;
+      overflow: hidden;
+      z-index: 1;
+      .info-button-production-span {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #dba621;
+        z-index: -1;
+      }
     }
 
-    @keyframes move {
-      0% {
-        transform: translateX(0%);
+    .move-into-enter-active {
+      animation: moveInLeft 0.5s;
+    }
+    .move-into-leave-active {
+      animation: moveOutRight 0.5s;
+    }
+    @keyframes moveInLeft {
+      from {
+        transform: translate3d(-100%, 0, 0);
       }
-      100% {
-        transform: translateX(100%);
+
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    @keyframes moveOutRight {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: translate3d(100%, 0, 0);
       }
     }
   }
