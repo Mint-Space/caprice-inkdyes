@@ -3,15 +3,19 @@
     <div class="box">
       <production-card
         class="items"
-        @click.native="handleClick"
+        @click.native="handleClick(poem.id)"
         v-for="poem in poemList"
         :key="poem.id"
         :poemObj="poem"
       />
     </div>
     <transition name="jump">
-      <div v-show="isShowCard" class="hidden-card" @click.self="hiddenCard">
-        <horse-lamp class="horse-lamp" :poemListArr="poemList" />
+      <div v-if="isShowCard" class="hidden-card" @click.self="hiddenCard">
+        <horse-lamp
+          class="horse-lamp"
+          :poemListArr="poemList"
+          :poemId="poemId"
+        />
       </div>
     </transition>
   </div>
@@ -35,11 +39,13 @@ export default {
   data() {
     return {
       isShowCard: false,
+      poemId:0,
     };
   },
   methods: {
-    handleClick() {
+    handleClick(id) {
       this.isShowCard = true;
+      this.poemId = id*1;
     },
     hiddenCard() {
       this.isShowCard = false;

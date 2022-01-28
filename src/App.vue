@@ -112,7 +112,7 @@ export default {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   height: 100vh;
   width: 100%;
   overflow: hidden;

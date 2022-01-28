@@ -7773,7 +7773,7 @@ vue-template-es2015-compiler@^1.9.0:
 
 vue-typed-js@^0.1.2:
   version "0.1.2"
-  resolved "https://registry.nlark.com/vue-typed-js/download/vue-typed-js-0.1.2.tgz#afc38972675314c37df6de91daf870f6860024ca"
+  resolved "https://registry.npmmirror.com/vue-typed-js/download/vue-typed-js-0.1.2.tgz#afc38972675314c37df6de91daf870f6860024ca"
   integrity sha1-r8OJcmdTFMN99t6R2vhw9oYAJMo=
   dependencies:
     typed.js "git+https://github.com/mattboldt/typed.js.git"
