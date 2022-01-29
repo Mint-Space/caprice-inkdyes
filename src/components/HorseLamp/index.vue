@@ -10,10 +10,7 @@
         >
           <img class="lamp-img" :src="poem.imgSrc" alt="" />
           <div class="poem">
-            <div
-              class="poem-level"
-              v-if="poemSentenceList(poem.id).length <= 12"
-            >
+            <div class="poem-level" v-if="!isChangeLayout(poem.id)">
               <div class="poem-title-level">{{ poem.title }}</div>
               <div class="poem-bady-level">
                 <div
@@ -26,10 +23,7 @@
               </div>
               <div class="poem-author-level">{{ poem.author }}</div>
             </div>
-            <div
-              class="poem-vertical"
-              v-if="poemSentenceList(poem.id).length >= 12"
-            >
+            <div class="poem-vertical" v-if="isChangeLayout(poem.id)">
               <div class="poem-title-vertical">{{ poem.title }}</div>
               <div
                 class="poem-body-vertical"
@@ -75,6 +69,15 @@ export default {
     this.run();
   },
   computed: {
+    isChangeLayout() {
+      return (id) => {
+        if (this.poemSentenceList(id).length >= 12) {
+          return true;
+        } else if (this.poemSentenceList(id).length <= 12) {
+          return false;
+        }
+      };
+    },
     poemSentenceList() {
       var array = [];
       return (index) => {
