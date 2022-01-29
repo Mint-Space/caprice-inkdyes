@@ -149,7 +149,7 @@ export default {
           bottom: 0px;
           right: 0px;
           text-align: left;
-          padding: 15px 55px;
+          padding: 15px 30px;
           .poem-title-level {
             text-align: left;
             font-size: 20px;
@@ -171,7 +171,7 @@ export default {
         }
         .poem-vertical {
           text-align: right;
-          padding: 15px 55px;
+          padding: 15px 30px;
           display: flex;
           flex-flow: row-reverse;
           justify-content: flex-start;
@@ -210,8 +210,8 @@ export default {
 
 .banner-enter-active,
 .banner-leave-active {
-  transition: all 3s ease-in-out;
-  transition-delay: 3s;
+  transition: all 2s ease-in-out;
+  transition-delay: 4s;
 }
 
 .banner-enter {

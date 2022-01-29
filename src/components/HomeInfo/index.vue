@@ -17,11 +17,12 @@
       间,与你分享每一分的快乐和感动！
     </div>
     <div class="info-button">
-      <div class="info-button-learn">了解更多</div>
+      <div class="info-button-learn" @click="toAbout()">了解更多</div>
       <div
         @mouseover="mouseIn"
         @mouseleave="mouseOut"
         class="info-button-production"
+        @click="toProduction()"
       >
         作品集
         <transition name="move-into">
@@ -45,6 +46,16 @@ export default {
     };
   },
   methods: {
+    toProduction() {
+      this.$router.push({
+        name: "Portfolio",
+      });
+    },
+    toAbout() {
+      this.$router.push({
+        name: "About",
+      });
+    },
     mouseIn() {
       this.isShowSpan = true;
     },
