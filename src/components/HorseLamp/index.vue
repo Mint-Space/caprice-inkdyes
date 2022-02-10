@@ -5,7 +5,7 @@
         <div
           class="lamp-items"
           v-for="poem in poemList"
-          v-show="num == poem.id"
+          v-if="num == poem.id"
           :key="poem.id"
         >
           <img class="lamp-img" :src="poem.imgSrc" alt="" />
@@ -92,6 +92,8 @@ export default {
       if (this.poemId == 0) {
         this.num = 1;
         this.timer = setTimeout(this.play(), this.animateTime);
+      } else if (this.poemId == this.poemList.length - 1) {
+        this.play();
       } else {
         this.num = this.poemId;
         this.timer = setTimeout(this.play(), this.animateTime);
@@ -100,9 +102,11 @@ export default {
     autoPlay() {
       // num自增，通过判断 num 和 index 相不相等，来显示对应 index 的banner
       this.num++;
-      if (this.num == this.poemList.length) {
+      console.log(this.num);
+      if (this.num >= this.poemList.length) {
         this.num = 0;
       }
+      return this.num;
     },
     play() {
       // 设置定时器，让banner显示隐藏
@@ -213,7 +217,6 @@ export default {
   transition: all 2s ease-in-out;
   transition-delay: 4s;
 }
-
 .banner-enter {
   opacity: 0;
   left: 700px;
@@ -222,7 +225,6 @@ export default {
   opacity: 1;
   left: 0px;
 }
-
 .banner-leave {
   opacity: 1;
   left: 0px;
